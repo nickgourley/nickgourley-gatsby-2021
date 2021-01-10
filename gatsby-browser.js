@@ -1,8 +1,18 @@
-const React = require("react")
-const Layout = require("./src/components/layout").default
+import React from "react";
+import { ThemeProvider } from "./src/context/ThemeContext";
+import Firebase, { FirebaseContext } from "./src/components/Firebase";
+import Layout from "./src/components/layout";
 
-exports.wrapPageElement = ({ element, props }) => {
+export const wrapPageElement = ({ element, props }) => {
   // props provide same data to Layout as Page element will get
   // including location, data, etc - you don't need to pass it
   return <Layout {...props}>{element}</Layout>
 }
+
+export const wrapRootElement = ({ element }) => (
+    <FirebaseContext.Provider
+        value={new Firebase()}
+    >
+        <ThemeProvider>{element}</ThemeProvider>
+    </FirebaseContext.Provider>
+  )
