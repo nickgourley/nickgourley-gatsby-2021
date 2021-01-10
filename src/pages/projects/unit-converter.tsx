@@ -1,8 +1,8 @@
-import React from "react"
+import React, { FC } from "react"
 
 import SEO from "../../components/seo"
 
-const UnitConverterPage = () => {
+const UnitConverterPage: FC = () => {
     return (
         <div>
             <SEO title="Unit Converter" />

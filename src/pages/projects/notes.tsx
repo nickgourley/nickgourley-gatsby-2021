@@ -1,8 +1,8 @@
-import React from "react"
+import React, { FC } from "react"
 
 import SEO from "../../components/seo"
 
-const NotesPage = () => {
+const NotesPage: FC = () => {
     return (
         <div>
             <SEO title="Notes App" />
