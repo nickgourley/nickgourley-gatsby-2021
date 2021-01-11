@@ -7,12 +7,11 @@ const SignInForm = (props) => {
         if(props.firebase) {
             const username = e.target.username.value;
             const password = e.target.password.value;
-            props.firebase.doCreateUserWithEmailAndPassword(username, password)
+            props.firebase.doSignInWithEmailAndPassword(username, password)
                 .then((user)=> {
                     console.log('success');
-                    console.log(user);
-                    props.doSetUser({ name: "Nick" });
-                    
+                    console.log(user.user.email);
+                    props.setUser(user.user)
                 })
                 .catch((error) => {
                     console.log(error);

@@ -1,14 +1,20 @@
 import React from "react";
-import SignUpForm from "../components/sign-up-form";
-import { FirebaseContext } from "../components/Firebase"
+import SignInForm from "../components/sign-in-form";
+import { FirebaseContext } from "../components/Firebase";
+import UserContext from "../context/UserContext";
 
 const SignInPage = () => {
     return (
         <div>
-            <h1>Sign Ip</h1>
+            <h1>Sign In</h1>
             <hr />
             <FirebaseContext.Consumer>
-                {firebase => <SignUpForm firebase={firebase} />}
+                {firebase => (
+                    <UserContext.Consumer>
+                        {values => (<SignInForm firebase={firebase} setUser={values.setUser} />)}
+                    </UserContext.Consumer>
+                    
+                )}
             </FirebaseContext.Consumer>
         </div>
     );

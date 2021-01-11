@@ -27,6 +27,19 @@ const Header: FC<{ siteTitle: string }> = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
+      <div>
+        <ul>
+          <li>
+            <Link to="/sign-in/">Sign In</Link>
+          </li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <a>Sign Out</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </header>
 );
